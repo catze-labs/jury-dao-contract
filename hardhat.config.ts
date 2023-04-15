@@ -23,9 +23,12 @@ const config: HardhatUserConfig = {
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
     scroll_testnet: {
-      url: process.env.SCROLL_TESTNET_URL || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+      url: process.env.SCROLL_TESTNET_RPC_URL,
+      accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
+    },
+    polygon_zkEVM_testnet: {
+      url: process.env.POLYGON_ZKEVM_TESTNET_RPC_URL,
+      accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
   },
   etherscan: {
