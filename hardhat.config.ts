@@ -12,7 +12,7 @@ const PRIVATE_KEY_2 = process.env.PRIVATE_KEY_2;
 const config: HardhatUserConfig = {
   solidity: "0.8.18",
   networks: {
-    Goerli: {
+    goerli: {
       url: process.env.GOERLI_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
@@ -24,7 +24,7 @@ const config: HardhatUserConfig = {
       url: process.env.SCROLL_TESTNET_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
-    polygon_zkEVM_testnet: {
+    polygon_zkevm_testnet: {
       url: process.env.POLYGON_ZKEVM_TESTNET_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
@@ -35,6 +35,40 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
+    customChains: [
+      {
+        network: "mantle_testnet",
+        chainId: 5001,
+        urls: {
+          apiURL: `https://explorer.testnet.mantle.xyz/api`,
+          browserURL: "https://explorer.testnet.mantle.xyz/"
+        }
+      },
+      {
+        network: "scroll_testnet",
+        chainId: 534353,
+        urls: {
+          apiURL: `https://blockscout.scroll.io/api`,
+          browserURL: "https://blockscout.scroll.io/"
+        }
+      },
+      {
+        network: "polygon_zkevm_testnet",
+        chainId: 1442,
+        urls: {
+          apiURL: `https://testnet-zkevm.polygonscan.com/api`,
+          browserURL: "https://testnet-zkevm.polygonscan.com"
+        }
+      },
+      {
+        network: "linea_testnet",
+        chainId: 59140,
+        urls: {
+          apiURL: `https://explorer.goerli.linea.build/api`,
+          browserURL: "https://explorer.goerli.linea.build/"
+        }
+      },
+    ]
   },
 };
 
