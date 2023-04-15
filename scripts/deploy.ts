@@ -41,6 +41,12 @@ async function main() {
     await juryDAO.deployed();
     console.log(juryDAO.address," ", hre.network.name , " juryDAO address");
 
+    const APE = new hre.ethers.Contract("0x328507DC29C95c170B56a1b3A758eB7a9E73455c", MockERC20ABI, hre.ethers.provider.getSigner());
+    const BOB = new hre.ethers.Contract("0x97a4ab97028466FE67F18A6cd67559BAABE391b8", BOBABI, hre.ethers.provider.getSigner());
+
+    await APE.approve(`0x8e0f38DF8e63a326fAa663961f475292b8f466e0`, hre.ethers.utils.parseEther("1000"), {nonce: nonce + 1});
+    await BOB.approve(`0x8e0f38DF8e63a326fAa663961f475292b8f466e0`, hre.ethers.utils.parseEther("1000"), {nonce: nonce + 2});
+
   
     console.log(`
         npx hardhat verify --network ${hre.network.name} ${bit.address} --contract contracts/BlockchainIncentivizedToken.sol:BlockchainIncentivizedToken
