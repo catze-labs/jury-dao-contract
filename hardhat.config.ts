@@ -16,12 +16,6 @@ const config: HardhatUserConfig = {
       url: process.env.GOERLI_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
-    bsc_testnet: {
-      url: process.env.BSC_TESTNET_RPC_URL,
-      accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
-      gas : 10000000,
-      gasPrice : 20000000000,
-    },
     mantle_testnet: {
       url: process.env.MANTLE_TESTNET_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
