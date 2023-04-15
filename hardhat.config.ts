@@ -30,6 +30,10 @@ const config: HardhatUserConfig = {
       url: process.env.POLYGON_ZKEVM_TESTNET_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
     },
+    linea_testnet: {
+      url: process.env.LINEA_TESTNET_RPC_URL,
+      accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
+    },
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
