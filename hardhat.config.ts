@@ -12,6 +12,10 @@ const PRIVATE_KEY_2 = process.env.PRIVATE_KEY_2;
 const config: HardhatUserConfig = {
   solidity: "0.8.18",
   networks: {
+    Goerli: {
+      url: process.env.GOERLI_RPC_URL,
+      accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
+    },
     bsc_testnet: {
       url: process.env.BSC_TESTNET_RPC_URL,
       accounts: [`${PRIVATE_KEY_1}`, `${PRIVATE_KEY_2}`],
@@ -41,3 +45,6 @@ const config: HardhatUserConfig = {
 };
 
 export default config;
+
+// BOB - Goerli - https://docs.zkbob.com/implementation/deployed-contracts#goerli-testnet
+// APE - Goerli - https://goerli.etherscan.io/address/0x328507DC29C95c170B56a1b3A758eB7a9E73455c
